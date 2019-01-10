@@ -1,0 +1,50 @@
+<app-femenu></app-femenu>
+
+<div class="row">
+    <div class="col-md-12">
+      <ul class="breadcrumb">
+        <li><a href routerLink="/">Home</a></li>
+        <li class="active">Jobs</li>
+      </ul>
+      <div class="jumbotron">
+          <form>
+                <div class="input-group">
+                    <label for="search">Search</label>
+                    <input type="search" class="form-control" name="key" required>
+                    <div class="input-group-btn">
+                      <button class="btn btn-info" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                      </button>
+                    </div>
+                </div>
+          </form>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 well cards" *ngFor="let x of jobDetails">
+      <a href  routerLink="/details/{{x.id}}" title="{{x.title}}">
+        <div class="row">
+              <div class="col-md-10 col-sm-10 col-xs-10">
+                  <h5> <span class="glyphicon glyphicon-briefcase"></span> {{ x.title }} </h5>
+                  <h6 class="text-danger"> {{ x.company }} </h6>
+                  <p>
+                    <span class="glyphicon glyphicon-dashboard"></span> {{ x.exp }}  &nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-map-marker"></span> {{ x.location }}
+                  </p>
+              </div>
+              <div class="col-md-2 col-sm-2 col-xs-2">
+                  <img src="{{x.logo}}" class="img-responsive img-thumbnail" alt="">
+              </div>
+        </div>
+        <div class="row bg-primary">
+            <div class="col-md-6">
+                <p>Salary: {{ x.salary }} </p>
+            </div>
+            <div class="col-md-6">
+                <a href routerLink="/details/{{x.id}}" class="btn btn-warning pull-right">Details</a>
+            </div>
+        </div>
+       </a>
+    </div>
+</div>
